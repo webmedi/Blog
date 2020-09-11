@@ -17,7 +17,7 @@ export const SiteNavLogo = () => (
   <StaticQuery
     query={graphql`
       query HeadingQuery {
-        logo: file(relativePath: { eq: "img/ghost-logo.png" }) {
+        logo: file(relativePath: { eq: "img/sitetitle.png" }) {
           childImageSharp {
             fixed(quality: 100 width: 500) {
               ...GatsbyImageSharpFixed
@@ -63,4 +63,3 @@ const SiteNavLogoStyles = css`
     height: 21px;
   }
 `;
-
