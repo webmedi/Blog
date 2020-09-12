@@ -46,6 +46,21 @@ module.exports = {
               toHeading: 6
             },
           },
+          {
+            // https://www.gatsbyjs.com/plugins/gatsby-remark-vscode/#using-languages-and-themes-from-an-extension
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              theme: 'Dark (Visual Studio)' // Or install your favorite theme from GitHub
+            }
+          },
+          {
+            // https://www.gatsbyjs.com/plugins/gatsby-remark-external-links/
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "noopener noreferrer"
+            }
+          },
           `gatsby-remark-autolink-headers`,
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
