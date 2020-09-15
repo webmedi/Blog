@@ -54,7 +54,7 @@ const config: WebsiteConfig = {
   coverImage: 'img/blog-cover.png',
   logo: 'img/sitetitle.png',
   lang: 'ja',
-  siteUrl: '',
+  siteUrl: 'https://blog.sharemyknowledge.jp',
   facebook: '',
   twitter: '',
   showSubscribe: false,

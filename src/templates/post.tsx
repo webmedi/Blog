@@ -101,6 +101,19 @@ export interface PageContext {
   };
 }
 
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  LineShareButton,
+  LineIcon,
+  PocketShareButton,
+  PocketIcon,
+} from 'react-share';
+
 const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
   const post = data.markdownRemark;
   let width = '';
@@ -115,6 +128,8 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
   const datetime = format(date, 'yyyy-MM-dd');
   // 20 AUG 2018
   const displayDatetime = format(date, 'dd LLL yyyy');
+
+  const shareUrl = location.href
 
   return (
     <IndexLayout className="post-template">
@@ -196,6 +211,23 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
                 <PostFullCustomExcerpt className="post-full-custom-excerpt">
                   {post.frontmatter.excerpt}
                 </PostFullCustomExcerpt>
+
+                <FacebookShareButton url={shareUrl} className="mr-2">
+                  <FacebookIcon size={40} round />
+                </FacebookShareButton>
+                <TwitterShareButton title={post.frontmatter.title} via="PgCreator" url={shareUrl} className="mr-2">
+                  <TwitterIcon size={40} round />
+                </TwitterShareButton>
+                <WhatsappShareButton url={shareUrl} className="mr-2">
+                  <WhatsappIcon size={40} round />
+                </WhatsappShareButton>
+                <LineShareButton url={shareUrl} className="mr-2">
+                  <LineIcon size={40} round />
+                </LineShareButton>
+                <PocketShareButton url={shareUrl} className="mr-2">
+                  <PocketIcon size={40} round />
+                </PocketShareButton>
+
                 <PostFullByline className="post-full-byline">
                   <section className="post-full-byline-content">
                     <AuthorList authors={post.frontmatter.author} tooltip="large" />
@@ -233,6 +265,23 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
 
               {/* The big email subscribe modal content */}
               {config.showSubscribe && <Subscribe title={config.title} />}
+
+              <FacebookShareButton url={shareUrl} className="mr-2">
+                <FacebookIcon size={40} round />
+              </FacebookShareButton>
+              <TwitterShareButton title={post.frontmatter.title} via="PgCreator" url={shareUrl} className="mr-2">
+                <TwitterIcon size={40} round />
+              </TwitterShareButton>
+              <WhatsappShareButton url={shareUrl} className="mr-2">
+                <WhatsappIcon size={40} round />
+              </WhatsappShareButton>
+              <LineShareButton url={shareUrl} className="mr-2">
+                <LineIcon size={40} round />
+              </LineShareButton>
+              <PocketShareButton url={shareUrl} className="mr-2">
+                <PocketIcon size={40} round />
+              </PocketShareButton>
+
             </article>
           </div>
         </main>
