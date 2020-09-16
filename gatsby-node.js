@@ -203,16 +203,3 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
     });
   }
 };
-
-exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage, deletePage } = actions;
-
-  // Check if the page is a localized 404
-  if (page.path.match(/^\/[a-z]{2}\/404\/$/)) {
-    const oldPage = { ...content / page };
-
-    // Recreate the modified page
-    deletePage(oldPage);
-    createPage(page);
-  }
-};

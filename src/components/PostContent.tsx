@@ -298,9 +298,10 @@ export const PostFullContent = styled.section`
 
   h3 {
     margin: 0.5em 0 0.2em;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     line-height: 1.3em;
     font-weight: 600;
+    left: 10.0px;
   }
   h2 + h3 {
     margin-top: 0.7em;
@@ -315,8 +316,9 @@ export const PostFullContent = styled.section`
 
   h4 {
     margin: 0.5em 0 0.2em;
-    font-size: 2.5rem;
+    font-size: 2.0rem;
     font-weight: 600;
+    left: 20.0px;
   }
   h2 + h4 {
     margin-top: 0.7em;

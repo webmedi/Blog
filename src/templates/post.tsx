@@ -129,7 +129,7 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
   // 20 AUG 2018
   const displayDatetime = format(date, 'dd LLL yyyy');
 
-  const shareUrl = location.href
+  const shareUrl = location.href;
 
   return (
     <IndexLayout className="post-template">
@@ -213,19 +213,19 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
                 </PostFullCustomExcerpt>
 
                 <FacebookShareButton url={shareUrl} className="mr-2">
-                  <FacebookIcon size={40} round />
+                  <FacebookIcon round size={40} />
                 </FacebookShareButton>
                 <TwitterShareButton title={post.frontmatter.title} via="PgCreator" url={shareUrl} className="mr-2">
-                  <TwitterIcon size={40} round />
+                  <TwitterIcon round size={40} />
                 </TwitterShareButton>
                 <WhatsappShareButton url={shareUrl} className="mr-2">
-                  <WhatsappIcon size={40} round />
+                  <WhatsappIcon round size={40} />
                 </WhatsappShareButton>
                 <LineShareButton url={shareUrl} className="mr-2">
-                  <LineIcon size={40} round />
+                  <LineIcon round size={40} />
                 </LineShareButton>
                 <PocketShareButton url={shareUrl} className="mr-2">
-                  <PocketIcon size={40} round />
+                  <PocketIcon round size={40} />
                 </PocketShareButton>
 
                 <PostFullByline className="post-full-byline">
@@ -267,19 +267,19 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
               {config.showSubscribe && <Subscribe title={config.title} />}
 
               <FacebookShareButton url={shareUrl} className="mr-2">
-                <FacebookIcon size={40} round />
+                <FacebookIcon round size={40} />
               </FacebookShareButton>
               <TwitterShareButton title={post.frontmatter.title} via="PgCreator" url={shareUrl} className="mr-2">
-                <TwitterIcon size={40} round />
+                <TwitterIcon round size={40} />
               </TwitterShareButton>
               <WhatsappShareButton url={shareUrl} className="mr-2">
-                <WhatsappIcon size={40} round />
+                <WhatsappIcon round size={40} />
               </WhatsappShareButton>
               <LineShareButton url={shareUrl} className="mr-2">
-                <LineIcon size={40} round />
+                <LineIcon round size={40} />
               </LineShareButton>
               <PocketShareButton url={shareUrl} className="mr-2">
-                <PocketIcon size={40} round />
+                <PocketIcon round size={40} />
               </PocketShareButton>
 
             </article>
