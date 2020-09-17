@@ -4,8 +4,7 @@ title: AWS SAA 試験準備ワークショップ①
 image: img/computer.jpg
 author: [UH]
 date: 2020-09-16T18:00:00.000Z
-tags:
-  - techblog
+tags: ['techblog', 'awssaa']
 draft: false
 ---
 
@@ -17,14 +16,6 @@ tight: false,
 from-heading: 2
 to-heading: 6
 ```
-
-## はじめに
-
-最近、胸焼けが酷くなってきた筆者です。  
-体重も15kg位増え、標準体重気味になってきました。
-
-お腹もたるんたるんで困っちゃいます。  
-ランニングでもしようかなぁp(´⌒｀q
 
 ## `多層アーキテクチャソリューションの設計`および`AWSのサービスを使用したデカップリングメカニズムの設計`
 

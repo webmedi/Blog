@@ -7,3 +7,6 @@
 - id: techblog
   description: We will be sharing technical insights gained in our daily lives.
   image: img/callum-shaw-555357-unsplash.jpg
+- id: awssaa
+  description: We will be sending out articles about the AWS Certified Solutions Architect Associate exam.
+  image: img/callum-shaw-555357-unsplash.jpg
