@@ -21,6 +21,7 @@ import { inner, outer, SiteMain } from '../styles/shared';
 import config from '../website-config';
 import { AuthorList } from '../components/AuthorList';
 
+import { Analytics } from 'aws-amplify';
 export interface Author {
   id: string;
   bio: string;
@@ -130,6 +131,11 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
   const displayDatetime = format(date, 'dd LLL yyyy');
 
   const shareUrl = location.href;
+
+  void Analytics.record({
+    name: 'show_post',
+    attributes: { viewTitle: post.frontmatter.title, url: shareUrl },
+  });
 
   return (
     <IndexLayout className="post-template">

@@ -26,6 +26,12 @@ import {
 import config from '../website-config';
 import { PageContext } from './post';
 
+import { Analytics } from 'aws-amplify';
+
+void Analytics.record({
+  name: 'show_index',
+});
+
 export interface IndexProps {
   pageContext: {
     currentPage: number;

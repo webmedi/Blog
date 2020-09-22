@@ -132,3 +132,4 @@ amplify-gradle-config.json
 amplifytools.xcconfig
 amplify
 amplify.json
+src/aws-exports.ts
