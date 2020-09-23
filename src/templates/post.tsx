@@ -21,6 +21,10 @@ import { inner, outer, SiteMain } from '../styles/shared';
 import config from '../website-config';
 import { AuthorList } from '../components/AuthorList';
 
+import Amplify from 'aws-amplify';
+import awsconfig from '../aws-exports';
+Amplify.configure(awsconfig);
+
 import { Analytics } from 'aws-amplify';
 export interface Author {
   id: string;

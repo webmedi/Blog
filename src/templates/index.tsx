@@ -26,6 +26,10 @@ import {
 import config from '../website-config';
 import { PageContext } from './post';
 
+import Amplify from 'aws-amplify';
+import awsconfig from '../aws-exports';
+Amplify.configure(awsconfig);
+
 import { Analytics } from 'aws-amplify';
 
 void Analytics.record({

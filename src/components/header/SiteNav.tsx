@@ -13,10 +13,6 @@ import { Twitter } from '../icons/twitter';
 import { SubscribeModal } from '../subscribe/SubscribeModal';
 import { SiteNavLogo } from './SiteNavLogo';
 
-import Amplify from 'aws-amplify';
-import awsconfig from '../../aws-exports';
-Amplify.configure(awsconfig);
-
 interface SiteNavProps {
   isHome?: boolean;
   isPost?: boolean;
