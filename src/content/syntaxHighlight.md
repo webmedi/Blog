@@ -3,7 +3,7 @@ layout: post
 title: シンタックスハイライトテスト(*´∀`*)ﾎﾟｯ
 image: img/computer.jpg
 author: [UH]
-date: 2020-09-12T13:00:00.000Z
+date: 2020-09-12T13:00:00.000+09:00
 tags:
   - techblog
 draft: false

@@ -3,7 +3,7 @@ layout: post
 title: 記念すべき初投稿♪
 image: img/speeches-cover.jpg
 author: [UH]
-date: 2020-09-11T09:00:00.000Z
+date: 2020-09-11T09:00:00.000+09:00
 tags:
   - diary
 draft: false

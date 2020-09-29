@@ -3,7 +3,7 @@ layout: post
 title: 最近お腹の調子が悪い
 image: img/speeches-cover.jpg
 author: [UH]
-date: 2020-09-13T05:00:00.000Z
+date: 2020-09-13T05:00:00.000+09:00
 tags:
   - diary
 draft: false

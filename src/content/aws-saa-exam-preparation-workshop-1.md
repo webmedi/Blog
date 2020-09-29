@@ -3,7 +3,7 @@ layout: post
 title: AWS SAA 試験準備ワークショップ①
 image: img/computer.jpg
 author: [UH]
-date: 2020-09-16T18:00:00.000Z
+date: 2020-09-16T18:00:00.000+09:00
 tags: ['techblog', 'awssaa']
 draft: false
 ---
