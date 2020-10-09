@@ -60,6 +60,9 @@ const profile: React.FC = () => (
                 <li role="menuitem">
                   <Link to="/tags/awssaa/">AWSソリューションアーキテクトアソシエイト試験関連</Link>
                 </li>
+                <li role="menuitem">
+                  <Link to="/tags/shellscript/">シェルスクリプト関連</Link>
+                </li>
               </div>
             </PostFullContent>
           </article>
