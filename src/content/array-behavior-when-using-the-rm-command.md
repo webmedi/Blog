@@ -71,18 +71,14 @@ done
 
 ## 挙動
 
-```bash
-bash-4.2$ cat /var/www/vhost/dev.test.com/.vscode-server/extensions/rogalmic.bash-debug-0.3.9/bashdb_dir/swap_os_reboot.log
-```
+`bash-4.2$ cat /var/www/vhost/dev.test.com/.vscode-server/extensions/rogalmic.bash-debug-0.3.9/bashdb_dir/swap_os_reboot.log`
 
 ---
 
 > 上記コマンド出力結果 ↓↓↓↓
 
-```bash
-古いログファイル：「 /var/www/vhost/dev.test.com/.vscode-server/extensions/rogalmic.bash-debug-0.3.9/bashdb_dir/swap_os_reboot.log_20201008_17_27_25 」の削除を実施しました。
-古いログファイル：の削除を実施しました。
-```
+- 古いログファイル：「 /var/www/vhost/dev.test.com/.vscode-server/extensions/rogalmic.bash-debug-0.3.9/bashdb_dir/swap_os_reboot.log_20201008_17_27_25 」の削除を実施しました。
+- 古いログファイル：の削除を実施しました。
 
 削除前の削除ファイル配列変数を事前に変数tmpへ待避していない場合、後者のisFindDelLogList変数で判定している条件分岐内でfindDelLogList変数の中身が出力されなくなっています。
 
@@ -94,6 +90,4 @@ bash-4.2$ cat /var/www/vhost/dev.test.com/.vscode-server/extensions/rogalmic.bas
 
 > デバッグコンソール出力結果 ↓↓↓↓
 
-```bash
-/var/www/vhost/dev.test.com/private/shell/swap_os_reboot.sh: 行 60: /var/www/vhost/dev.test.com/.vscode-server/extensions/rogalmic.bash-debug-0.3.9/bashdb_dir/swap_os_reboot.log_20201008_17_27_25: そのようなファイルやディレクトリはありません
-```
+`/var/www/vhost/dev.test.com/private/shell/swap_os_reboot.sh: 行 60: /var/www/vhost/dev.test.com/.vscode-server/extensions/rogalmic.bash-debug-0.3.9/bashdb_dir/swap_os_reboot.log_20201008_17_27_25: そのようなファイルやディレクトリはありません`
