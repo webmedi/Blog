@@ -130,10 +130,16 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
   }
 
   const date = new Date(post.frontmatter.date);
+  const modifyDate = new Date(post.frontmatter.modifiedDate);
   // 2018-08-20
   const datetime = format(date, 'yyyy-MM-dd');
   // 2018-08-20
   const displayDatetime = format(date, 'yyyy-MM-dd');
+  let displayModifyDatetime = format(modifyDate, 'yyyy-MM-dd');
+
+  if (modifyDate.getFullYear() < 2000) {
+    displayModifyDatetime = format(date, 'yyyy-MM-dd');
+  }
 
   const shareUrl = location.href;
 
@@ -269,10 +275,10 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
                       </h4>
                       <div className="byline-meta-content">
                         <time className="byline-meta-date" dateTime={datetime}>
-                          {displayDatetime}
+                          Initial Published：{displayDatetime}
                         </time>
                         <span className="byline-meta-update-date">
-                          <span className="bull">&bull;</span> {post.frontmatter.modifiedDate}
+                          <span className="bull">&bull;</span>Article Updates：{displayModifyDatetime}
                         </span>
                         <span className="byline-reading-time">
                           <span className="bull">&bull;</span> {post.timeToRead} min read
@@ -534,6 +540,7 @@ export const query = graphql`
         title
         userDate: date(formatString: "D MMMM YYYY")
         date
+        modifiedDate
         tags
         excerpt
         image {
