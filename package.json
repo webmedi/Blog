@@ -79,7 +79,7 @@
     "eslint-plugin-import": "2.22.0",
     "eslint-plugin-react": "7.20.6",
     "eslint-plugin-react-hooks": "4.1.0",
-    "gatsby": "^2.24.58",
+    "gatsby": "^2.28.2",
     "gatsby-image": "^2.4.17",
     "kill-port": "^1.6.1",
     "react": "^16.13.1",

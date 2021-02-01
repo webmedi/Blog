@@ -385,7 +385,7 @@ export const PostFullContent = styled.section`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
       'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 1.6rem;
-    white-space: nowrap;
+    white-space: break-word;
     vertical-align: top;
   }
 
@@ -434,6 +434,8 @@ export const PostFullContent = styled.section`
 
   table th,
   table td {
+    text-align: justify:
+    word-wrap : break-word;
     padding: 6px 12px;
     /* border: color(var(--whitegrey) l(-1%) s(-5%)) 1px solid; */
     border: ${lighten('-0.01', colors.whitegrey)} 1px solid;

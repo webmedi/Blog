@@ -52,6 +52,7 @@ interface PageTemplateProps {
       frontmatter: {
         title: string;
         date: string;
+        modifiedDate: string;
         userDate: string;
         image: {
           childImageSharp: {
@@ -131,8 +132,8 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
   const date = new Date(post.frontmatter.date);
   // 2018-08-20
   const datetime = format(date, 'yyyy-MM-dd');
-  // 20 AUG 2018
-  const displayDatetime = format(date, 'dd LLL yyyy');
+  // 2018-08-20
+  const displayDatetime = format(date, 'yyyy-MM-dd');
 
   const shareUrl = location.href;
 
@@ -270,6 +271,9 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
                         <time className="byline-meta-date" dateTime={datetime}>
                           {displayDatetime}
                         </time>
+                        <span className="byline-meta-update-date">
+                          <span className="bull">&bull;</span> {post.frontmatter.modifiedDate}
+                        </span>
                         <span className="byline-reading-time">
                           <span className="bull">&bull;</span> {post.timeToRead} min read
                         </span>
