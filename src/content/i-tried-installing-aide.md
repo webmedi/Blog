@@ -5,7 +5,8 @@ image: img/irasutoya/computer_crime.png
 author: [UH]
 date: 2021-02-26T05:57:00.000+09:00
 modifiedDate: 2021-02-26T14:46:00.000+09:00
-tags: ['techblog', 'aws-devops']
+tags:
+  - techblog
 draft: false
 ---
 

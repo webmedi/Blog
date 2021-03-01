@@ -5,7 +5,7 @@ image: img/computer.jpg
 author: [UH]
 date: 2021-01-27T13:28:00.000+09:00
 modifiedDate: 2021-02-01T21:40:00.000+09:00
-tags: ['techblog', 'aws-devops']
+tags: ['techblog', 'devops']
 draft: false
 ---
 
