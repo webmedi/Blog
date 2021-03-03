@@ -1,12 +1,15 @@
 ---
 layout: post
 title: Kubernetesクラスターへワーカーノードを追加してみる
-image: img/container_kontenasen.png
+image: img/kubernetes/kubernetes-stacked-color.png
 author: [UH]
 date: 2021-03-02T03:17:00.000+09:00
+modifiedDate: 2021-03-04T04:35:00.000+09:00
 tags: ['techblog', 'kubernetes']
 draft: false
 ---
+
+Photo by [CNCF – Change of venue(2019)](https://github.com/cncf/artwork/tree/master/projects/kubernetes) / Adapted.
 
 ###### 目次
 
@@ -35,9 +38,9 @@ to-heading: 6
 
 Kubernetesが動作する上でFWが原因で動作に問題が生じないように無効化します。
 
-`systemctl disable ufw.service`
+`root@k8s-node-a:~# systemctl disable ufw.service`
 
-`systemctl stop ufw.service`
+`root@k8s-node-a:~# systemctl stop ufw.service`
 
 `root@k8s-node-a:~# systemctl is-enabled ufw.service`
 
@@ -63,7 +66,7 @@ inactive
 ### HTTPS経由でインストールできるようにするための準備
 
 ```bash
-apt-get install \
+root@k8s-node-a:~# apt-get install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -120,7 +123,7 @@ sub   rsa4096 2017-02-22 [S]
 ### Docker Arm64版リポジトリ追加
 
 ```bash
-add-apt-repository \
+root@k8s-node-a:~# add-apt-repository \
    "deb [arch=arm64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
@@ -150,7 +153,7 @@ Adding disabled deb-src entry to /etc/apt/sources.list.d/archive_uri-https_downl
 
 後から追加したレポジトリのリストは、`/etc/apt/sources.list.d/`に記録されます。
 
-`cat /etc/apt/sources.list.d/archive_uri-https_download_docker_com_linux_ubuntu-groovy.list`
+`root@k8s-node-a:~# cat /etc/apt/sources.list.d/archive_uri-https_download_docker_com_linux_ubuntu-groovy.list`
 
 ```bash
 deb [arch=arm64] https://download.docker.com/linux/ubuntu groovy stable
@@ -184,7 +187,7 @@ containerdはDocker社が開発している、コンテナーランタイムに�
 この操作後に追加で 397 MB のディスク容量が消費されます。
 続行しますか? [Y/n] y
 ・
-・
+・[中略]
 ・
 containerd.io (1.4.3-1) を設定しています ...
 Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service → /lib/systemd/system/containerd.service.
@@ -250,7 +253,7 @@ dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable roo
 
 末尾につづけて書くようにします。
 
-`vi /boot/firmware/cmdline.txt`
+`root@k8s-node-a:~# vi /boot/firmware/cmdline.txt`
 
 ```bash
 cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1
@@ -270,7 +273,7 @@ dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable roo
 
 無効状態「0」だったのが有効状態「1」になっていることが確認できますね。
 
-`root@k8s-master:~# cat /proc/cgroups`
+`root@k8s-node-a:~# cat /proc/cgroups`
 
 ```bash
 #subsys_name    hierarchy       num_cgroups     enabled
@@ -289,9 +292,9 @@ KubernetesではSWAP領域を無効化することが条件になっています
 
 この場合、なんの問題もないのでスルーしましょう。
 
-`root@k8s-master:~# /sbin/swapon -s`
+`root@k8s-node-a:~# /sbin/swapon -s`
 
-`root@k8s-master:~# cat /proc/swaps`
+`root@k8s-node-a:~# cat /proc/swaps`
 
 ```bash
 Filename                                Type            Size            Used            Priority
@@ -346,7 +349,7 @@ uid           [  不明  ] Google Cloud Packages Automatic Signing Key <gc-team@
 ### Kubernetessリポジトリ追加
 
 ```bash
-cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+root@k8s-node-a:~# cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 ```
@@ -371,7 +374,7 @@ deb https://apt.kubernetes.io/ kubernetes-xenial main
 - kubelet　：クラスターの各ノードでPodを管理するコンポーネントです。
 - kubectl　：クラスターにアクセスするためのコマンドラインツールです。
 
-`apt-get install -y kubelet kubeadm kubectl`
+`root@k8s-node-a:~# apt-get install -y kubelet kubeadm kubectl`
 
 ```bash
 パッケージリストを読み込んでいます... 完了
@@ -403,7 +406,7 @@ man-db (2.9.3-2) のトリガを処理しています ...
 
 先ほどインストールツールのバージョンを固定にします。
 
-`apt-mark hold kubelet kubeadm kubectl`
+`root@k8s-node-a:~# apt-mark hold kubelet kubeadm kubectl`
 
 ```bash
 kubelet は保留に設定されました。
@@ -437,14 +440,14 @@ k8s-master   Ready    control-plane,master   2d19h   v1.20.4
 コマンドは以下の通り。
 
 ```bash
-kubeadm join 192.168.1.108:6443 --token b677lw.mke79ur70zeagzss \
+root@k8s-node-a:~# kubeadm join 192.168.1.108:6443 --token b677lw.mke79ur70zeagzss \
     --discovery-token-ca-cert-hash sha256:c95d9f8921e34fbabc2dfbc4e0e0a0919e02f899b12d8bab0de9603b3feab883
 ```
 
 `kubeadm join`は **ワーカーノードつまりマスターとは違うマシンで実行** します。
 
 ```bash
-root@k8s-node-a:~# kubeadm join 192.168.1.108:6443 --token b677lw.mke79ur70zeagzss \
+kubeadm join 192.168.1.108:6443 --token b677lw.mke79ur70zeagzss \
 >     --discovery-token-ca-cert-hash sha256:c95d9f8921e34fbabc2dfbc4e0e0a0919e02f899b12d8bab0de9603b3feab883
 ```
 
